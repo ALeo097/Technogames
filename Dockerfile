@@ -29,6 +29,9 @@ RUN sed -i 's/Listen 80/Listen 0.0.0.0:80/g' /etc/apache2/ports.conf && \
 # Habilitar mod_rewrite (útil para URLs amigables)
 RUN a2enmod rewrite
 
+# Deshabilitar todos los MPM y dejar solo prefork (php:apache usa prefork por defecto)
+RUN a2dismod mpm_event mpm_worker || true && a2enmod mpm_prefork
+
 # Script de entrada personalizado
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
