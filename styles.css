@@ -1,0 +1,1376 @@
+:root {
+    --bg-primary: #121212;
+    --bg-secondary: #1E1E1E;
+    --bg-card: #2A2A2A;
+    --accent-primary: #0074E4;
+    --accent-secondary: #14B5E8;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B3B3B3;
+    --success: #00CC66;
+    --error: #FF3333;
+    --sale: #FF4C4C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header estilo Epic Games */
+header {
+    background-color: rgba(30, 30, 30, 0.95);
+    padding: 12px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.logo i {
+    color: var(--accent-primary);
+    font-size: 28px;
+}
+
+.nav-main {
+    display: flex;
+    gap: 30px;
+    margin-left: 40px;
+}
+
+.nav-main a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.nav-main a:hover, .nav-main a.active {
+    color: var(--text-primary);
+}
+
+.nav-main a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-primary);
+    border-radius: 3px 3px 0 0;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    position: relative;
+    max-width: 500px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    border-radius: 30px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.search-bar i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-size: 20px;
+}
+
+.user-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.user-actions button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.user-actions button:hover {
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.user-actions button.primary {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+.user-actions button.primary:hover {
+    background-color: #0066CC;
+}
+
+#cartBtn {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--accent-primary);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Hero Section estilo Epic */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 5%;
+    margin-bottom: 60px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0066CC;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Secciones de contenido */
+.container {
+    padding: 0 5% 60px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.view-all {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+/* Grid de juegos */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* ===== TARJETAS SIMPLIFICADAS DE JUEGO ===== */
+
+/* Contenedor principal de la tarjeta */
+.game-card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 320px; /* Altura fija */
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Imagen del juego */
+.game-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Overlay para botones (solo aparece en hover) */
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover .game-overlay {
+    opacity: 1;
+}
+
+/* Botones en el overlay */
+.game-overlay button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: var(--accent-primary);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-overlay button:hover {
+    transform: scale(1.1);
+    background: #0066CC;
+}
+
+.add-to-cart-btn {
+    background: linear-gradient(135deg, var(--accent-primary), #0066CC) !important;
+}
+
+.view-details-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px);
+}
+
+
+
+/* Información simplificada del juego */
+.game-info-simple {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Título del juego */
+.game-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 2.6em; /* 2 líneas */
+}
+
+/* Precio simplificado */
+.game-price-simple {
+    margin-top: auto;
+}
+
+.price-with-discount {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.original-price {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: line-through;
+}
+
+.current-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+/* Para juegos gratuitos */
+.free-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #00CC66, #00a352);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .game-card {
+        height: 280px;
+    }
+    
+    .game-image {
+        height: 160px;
+    }
+    
+    .game-title {
+        font-size: 14px;
+        height: 2.8em;
+    }
+    
+    .current-price {
+        font-size: 16px;
+    }
+    
+    .game-overlay button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+/* Sección de gráficas */
+.charts-section {
+    margin: 40px 0;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.chart-container {
+    background: linear-gradient(135deg, #2A2A2A, #1E1E1E);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.chart-container h3 {
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.top-games-list {
+    margin-top: 15px;
+}
+
+.top-game-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-game-item:last-child {
+    border-bottom: none;
+}
+
+.top-game-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.top-game-title {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.top-game-sales {
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.top-game-earnings {
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.no-charts {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+}
+
+.no-charts i {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--accent-primary);
+}
+
+@media (max-width: 900px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .game-card {
+        height: 250px;
+    }
+    
+    .game-image {
+        height: 140px;
+    }
+    
+    .game-info-simple {
+        padding: 10px;
+    }
+}
+
+.add-to-cart {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+.add-to-cart:hover {
+    background-color: #0066CC;
+}
+
+.view-details {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.view-details:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-secondary);
+    padding: 50px 5% 30px;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: var(--text-primary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--bg-card);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    font-size: 16px;
+    transition: all 0.2s;
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Modales (manteniendo la funcionalidad pero con nuevo estilo) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: var(--text-primary);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.form-submit {
+    background-color: var(--accent-primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.form-submit:hover {
+    background-color: #0066CC;
+}
+
+.form-toggle {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.form-toggle a {
+    color: var(--accent-primary);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.form-toggle a:hover {
+    text-decoration: underline;
+}
+
+/* Carrito */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart-item img {
+    width: 60px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Mejoras para el contador del carrito */
+#cartCount {
+    font-weight: bold;
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.cart-count {
+    min-width: 18px;
+    text-align: center;
+    display: inline-block;
+}
+
+.cart-item-details p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.cart-item-total {
+    font-weight: bold;
+    margin: 0 15px;
+    color: var(--text-primary);
+}
+
+.remove-from-cart {
+    background: none;
+    border: none;
+    color: var(--error);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.remove-from-cart:hover {
+    transform: scale(1.2);
+}
+
+.cart-total {
+    text-align: right;
+    padding: 15px 0;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Notificaciones */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background-color: var(--success);
+    color: white;
+    border-radius: 4px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.error {
+    background-color: var(--error);
+}
+
+.notification.info {
+    background-color: var(--accent-primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .nav-main {
+        display: none;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 480px;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .hero-content {
+        align-items: center;
+    }
+    
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 400px;
+    }
+    
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-actions button span {
+        display: none;
+    }
+    
+    .user-actions button i {
+        margin-right: 0;
+    }
+}
+
+/* ===== ESTILOS PARA LISTA DE DESEOS ===== */
+
+/* Icono de wishlist en las tarjetas de juego */
+.wishlist-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+    color: white;
+    font-size: 18px;
+}
+
+.wishlist-icon:hover {
+    background: rgba(255, 51, 51, 0.8);
+    transform: scale(1.1);
+}
+
+.wishlist-icon.active {
+    background: rgba(255, 51, 51, 0.9);
+    color: white;
+}
+
+.wishlist-icon.active i {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Animación para el icono de wishlist */
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.wishlist-icon.added i {
+    animation: heartBeat 0.5s ease-in-out;
+}
+
+/* Botón de wishlist en el header */
+#wishlistBtn {
+    position: relative;
+}
+
+.wishlist-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--sale);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;  /* Cambiado de right a left */
+    background: linear-gradient(135deg, #FF4C4C, #FF3333);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    animation: pulse 2s infinite;
+}
+
+
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 6px 16px rgba(255, 76, 76, 0.4); }
+    100% { transform: scale(1); box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3); }
+}
+
+
+/* Versión alternativa con ícono de fuego */
+.discount-badge.fire {
+    background: linear-gradient(135deg, #FF9800, #F57C00);
+}
+
+.discount-badge.fire::before {
+    content: "🔥 ";
+    margin-right: 3px;
+}
+
+/* Estilos generales para footers informativos */
+.footer-minimal {
+    background: linear-gradient(135deg, var(--bg-secondary), #1a1a1a);
+    padding: 40px 5% 20px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.footer-logo i {
+    color: var(--accent-primary);
+}
+
+.footer-tagline {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.footer-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 20px;
+    border-radius: 10px;
+    min-width: 150px;
+}
+
+.stat i {
+    font-size: 24px;
+    color: var(--accent-primary);
+}
+
+.stat span {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Para la opción con categorías */
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Para la opción con stats dinámicas */
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #2A2A2A, #1E1E1E);
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card i {
+    font-size: 32px;
+    color: var(--accent-primary);
+}
+
+.stat-card h3 {
+    font-size: 24px;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.stat-card p {
+    margin: 5px 0 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Copyright siempre igual */
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.copyright p {
+    margin: 5px 0;
+}
+
+.footer-contact, .footer-note, .disclaimer {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat, .stat-card {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .category-tags {
+        justify-content: center;
+    }
+}
+
+/* Footer mejorado con enlaces */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: var(--accent-primary);
+    transform: translateX(5px);
+}
+
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--bg-card);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    font-size: 16px;
+    transition: all 0.2s;
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.footer-note {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* Estilo para el indicador de usuario - igual que los otros botones */
+.user-indicator-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    cursor: default !important; /* Importante para que no cambie el cursor */
+    opacity: 0.9;
+    transition: all 0.3s;
+    position: relative;
+}
+
+/* Para que se vea diferente a los botones normales (solo visual, no clickeable) */
+.user-indicator-btn:hover {
+    background: rgba(255, 255, 255, 0.1); /* Mantiene el mismo color */
+    transform: none; /* No se eleva */
+    box-shadow: none; /* Sin sombra */
+}
+
+/* Opcional: agregar un pequeño indicador de "en línea" */
+.user-indicator-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    background: #4CAF50;
+    border-radius: 50%;
+    border: 2px solid var(--bg-secondary);
+}
+
+/* Otra opción: usar un color diferente para destacar */
+.user-indicator-btn {
+    background: rgba(0, 116, 228, 0.2); /* Fondo azul suave */
+    border: 1px solid rgba(0, 116, 228, 0.3); /* Borde azul */
+}
+
+.user-indicator-btn i {
+    color: var(--accent-primary); /* Icono azul */
+}
+
+/* Para que el nombre del usuario sea más destacado */
+.user-indicator-btn span {
+    font-weight: 600;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .user-indicator-btn span {
+        display: inline-block;
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-indicator-btn span {
+        display: none;
+    }
+    
+    .user-indicator-btn {
+        padding: 10px;
+    }
+    
+    .user-indicator-btn::after {
+        bottom: 2px;
+        right: 2px;
+    }
+}

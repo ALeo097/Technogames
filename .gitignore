@@ -1,0 +1,45 @@
+# Variables de entorno (NUNCA subir)
+.env
+.env.local
+.env.*.local
+
+# Composer
+/vendor/
+composer.phar
+
+# Backups de archivos
+*.bak
+*_mysql_backup.php
+*.old
+*.tmp
+*~
+
+# Archivos de logs
+*.log
+migration/logs/*
+!migration/logs/.gitkeep
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+*~
+.~lock.*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos temporales
+/tmp/
+*.tmp
+
+# Lock de LibreOffice
+.~lock.*#
+
+# Archivos de test
+test_*.php
+fix_sessions.sh
+game_detail_before_req_fix.php
+process_extended.php
